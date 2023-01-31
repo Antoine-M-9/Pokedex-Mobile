@@ -6,7 +6,7 @@ export const Colors = {
   rock: "dimgray",
   steel: "silver",
   fire: "firebrick",
-  electric: "dodgerblue ",
+  electric: "dodgerblue",
   flying: "#a890f0",
   psychic: "indigo",
   bug: "khaki",

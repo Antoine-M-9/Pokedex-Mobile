@@ -1,8 +1,8 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useContext, useEffect, useState } from "react";
 import { Dimensions } from "react-native";
-import { FlatList, StyleSheet, Text, TextInput, View } from "react-native"
-import { ContextSettings, contextSettings } from "../context";
+import { FlatList, StyleSheet, TextInput } from "react-native"
+import { ContextSettings } from "../context";
 import { Pokemon } from "./Pokemon";
 
 const width = Dimensions.get('window').width;
@@ -19,7 +19,7 @@ export const Pokemons = ({ navigation }) => {
         fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`, { signal: controller.signal})
         .then(res => res.json())
         .then(data => setPokemons(data.results))
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
       return () => controller.abort()
     }, [offset, limit])
 
@@ -39,8 +39,8 @@ export const Pokemons = ({ navigation }) => {
         <FlatList
           style={styles.flatlist}
           data={pokemons.filter((p) => p.name.includes(input.toLowerCase()))}
-          keyExtractor={(item, index) => item.url.split("/")[6]}
-          renderItem={({ item, index }) => (
+          keyExtractor={item => item.url.split("/")[6]}
+          renderItem={({ item }) => (
             <Pokemon nav={navigation} item={item} />
           )}
         />

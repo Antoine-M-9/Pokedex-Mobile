@@ -1,6 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useState } from "react"
-import { FlatList, Image, StyleSheet, Text, View } from "react-native"
+import { FlatList, Image, StyleSheet, Text } from "react-native"
 import { Colors } from "../colors";
 
 export const Detail = ({ route }) => {
@@ -37,7 +37,7 @@ export const Detail = ({ route }) => {
         <FlatList
           style={styles.list}
           data={pokemon.types}
-          keyExtractor={(item) => item.name}
+          key={(item) => item.name}
           renderItem={({ item }) => (
             <Text
               style={[

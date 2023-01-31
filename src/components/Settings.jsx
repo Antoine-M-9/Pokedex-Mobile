@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { View } from "react-native";
-import { Button } from "react-native";
+import { View, Button } from "react-native";
 import { ContextSettings } from "../context"
 
 export const Settings = ({ navigation }) => {
+
     const { setLimit, setOffset } = useContext(ContextSettings);
 
-    const update = (offset, limit) => {
+    const update = ({offset, limit}) => {
         setOffset(offset)
         setLimit(limit)
         navigation.navigate('Home');
